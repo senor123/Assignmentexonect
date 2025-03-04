@@ -70,6 +70,7 @@ function App() {
       return countryItem;
     });
     setStates(resStates);
+    updateStateCity(prevName,name)
   };
 
   const updateCityName = (prevId, name) => {
@@ -99,6 +100,16 @@ function App() {
       return state;
     })
     setStates(resStates)
+  }
+  const updateStateCity=(prevState,newStateName)=>{
+    const tempCities=[...cities];
+    const resStates=tempCities.map(city=>{
+      if(city.state===prevState){
+        return {...city,state:newStateName}
+      }
+      return city;
+    })
+    setCities(resStates)
   }
   const deleteCountry=(countryName)=>{
     const confirmation=window.confirm("Do you wish to delete the country")
